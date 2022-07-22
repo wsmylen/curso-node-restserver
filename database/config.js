@@ -1,18 +1,29 @@
 const mongoose = require('mongoose');
 
 const dbConnection = async() => {
-    try {
-        await mongoose.connect('mongodb+srv://wmorataya:Wi11iam1983@miclustercafe.dohw5.mongodb.net/cafeDB', {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-          });
+    // try {
+        // await mongoose.connect(process.env.MONGODB_CNN, {
+        //     useNewUrlParser: true,
+        //     useUnifiedTopology: true,
+        //     useCreateIndex: true,
+        //     useFindAndModify: false
+        //   });
 
-        console.log('Base de datos online');
+        // console.log('Base de datos online');
 
-    } catch (error) {
-        console.log(error);
-        throw new Error('Error a la hora de iniciar la base de datos');
-    }
+        await mongoose.connect(process.env.MONGODB_CNN, 
+            {
+            useNewUrlParser: true, 
+            useUnifiedTopology: true 
+            }, err => {
+            if(err) throw err;
+            console.log('Connected to MongoDB!!!')
+            });
+
+    // } catch (error) {
+    //     console.log(error);
+    //     throw new Error('Error a la hora de iniciar la base de datos');
+    // }
 }
 
 module.exports = {
