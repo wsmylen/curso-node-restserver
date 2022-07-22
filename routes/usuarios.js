@@ -35,6 +35,6 @@ router.delete('/:id', [
     validarCampos
 ], usuariosDelete);
 
-// router.patch('/', usuariosPatch);
+router.patch('/', usuariosPatch);
 
 module.exports = router;
