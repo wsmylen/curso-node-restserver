@@ -14,7 +14,7 @@ const dbConnection = async() => {
         await mongoose.connect(process.env.MONGODB_CNN, 
             {
             useNewUrlParser: true, 
-            useUnifiedTopology: true 
+            useUnifiedTopology: true,
             }, err => {
             if(err) throw err;
             console.log('Connected to MongoDB!!!')
